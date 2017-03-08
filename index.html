@@ -1,1 +1,147 @@
-Hello Github
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>防伪码查询</title>
+<link rel="stylesheet" type="text/css" href="/public/mobile/style/reset.css">
+<link rel="stylesheet" type="text/css" href="/public/mobile/style/index.css">
+<script type="text/javascript">
+		! function(a) {
+		    function b() {
+		        a.rem = f.getBoundingClientRect().width / 16, f.style.fontSize = a.rem + "px"
+		    	console.log(a.rem);
+		    }
+		    var c, d = a.navigator.appVersion.match(/iphone/gi) ? a.devicePixelRatio : 1,
+		        e = 1 / d,
+		        f = document.documentElement,
+		        g = document.createElement("meta");
+		    if (a.dpr = d, a.addEventListener("resize", function() {
+		            clearTimeout(c), c = setTimeout(b, 300)
+		        }, !1), a.addEventListener("pageshow", function(a) {
+		            a.persisted && (clearTimeout(c), c = setTimeout(b, 300))
+		        }, !1), f.setAttribute("data-dpr", d), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + e + ", maximum-scale=" + e + ", minimum-scale=" + e + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g);
+		    else {
+		        var h = document.createElement("div");
+		        h.appendChild(g), document.write(h.innerHTML)
+		    }
+		    b()
+		}(window);
+	</script>
+</head>
+<body>
+	<!-- 首页查询页 -->
+	
+	<!-- 国内防伪码 -->
+	
+	<!-- end -->
+
+
+    <!-- 国内一般贸易，国内中转 -->
+    
+
+
+
+	<!-- 国外溯源防伪码 -->
+	
+		<section class="overseas">
+			<div class="header">
+				<h1 class="m-title m-title-long">进口官方溯源信息</h1>
+				<span>查询结果</span>
+			</div>
+			<div class="content clear">
+				<div class="info-name">
+					<p>商品名称：</p>
+					
+					<p>原产地(国)：</p>
+					
+					<p>进口口岸：</p>
+					<p>启运地：</p>
+					<p>报检时间：</p>
+					<p>报检单号：</p>
+					<p>报关日期：</p>
+					<p>报关单号：</p>
+					<p>发货仓库：</p>
+					<p>二维码序号：</p>
+
+				</div>
+				<div class="info-val">
+					<p>
+						
+						 Brita/碧然德滤芯
+					</p>
+					
+					<p>
+						
+						 德国
+					</p>
+					
+					<p>
+						
+						 浦东机场
+					</p>
+					<p>
+						
+						 德国
+					</p>
+					<p>
+						
+						 2016-05-03
+					</p>
+					<p>
+						
+						 333320116005880
+					</p>
+					<p>
+						
+						 2016-05-09
+					</p>
+					<p>
+						
+						 299120161916013466
+					</p>
+					<p>
+						
+                        
+                        
+                            跨境保税仓
+                        
+					</p>
+					<p>
+						
+                         8000010170423
+					</p>
+
+				</div>
+			</div>
+			<div class="query-win">
+				<div class="header">
+					<h1 class="m-title">防伪查询</h1>
+				</div>
+				<div class="m-code">
+					<p>验证真伪，请先扫码二维码，然后刮开涂层，输入13位防伪码。</p>
+					<input class="m-code-input" id="J_overseasCode" type=" "
+						placeholder="请输入13位防伪码" maxlength="13" />
+					<button class="m-btn m-code-go" id="J_overseasGo"
+						>查询</button>
+					<button class="m-btn m-code-reset">重置</button>
+				</div>
+			</div>
+		</section>
+	
+	<script type="text/javascript" src="/public/mobile/script/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/mobile/script/popup.js"></script>
+	<script type="text/javascript" src="/public/mobile/script/index.js"></script>
+	<script>
+		if(""=="true"){
+			popDialog.run({
+				msg: '',
+				action: 'touchend'
+			});
+		}
+	</script>
+</body>
+</html>
