@@ -1,6 +1,6 @@
 # main text of home
 name: Sun
-bio: A Man who travels the world eating noodles
+bio: Where amazing happens
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -9,10 +9,11 @@ description: A blog about technology and stuff related
 # better with square images
 external-image: false
 picture: assets/images/haha.jpg
+profilePic: assets/images/Q_profile.jpg
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
-resume: true
+resume: false
 resume-external: true
 resume-url: https://google.com/?q=my+resume
 
@@ -42,7 +43,7 @@ disqus:
 linkedin: mylinkedin
 # youtube: myyoutube
 # spotify: myspotify
-github: mygithub
+github: maidousj
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
@@ -50,13 +51,14 @@ github: mygithub
 #medium: medium
 # vimeo: myvimeo
 email: maidousj@aliyun.com
+#zhihu: yiban-jiong
 
 authors:
     johndoe:
         name: John Doe
         bio: A Man who travels the world eating noodles
         external-image: false
-        picture: assets/images/haha.jpg
+        picture: assets/images/Q_profile.jpg
         twitter: johndoe
     jamesfoster:
         name: James Foster

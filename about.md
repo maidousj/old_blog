@@ -2,7 +2,7 @@
 title: About
 layout: page
 ---
-![Profile Image]({{ site.url }}/{{ site.picture }})
+![Profile Image]({{ site.url }}/{{ site.profilePic }})
 
 <p>A man who in pursuit of a Ph.D degree. Build this blog to record some knowledge or technique.</p>
 
