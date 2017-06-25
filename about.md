@@ -4,7 +4,7 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.profilePic }})
 
-<p>A man who in pursuit of a Ph.D degree. Build this blog to record some knowledge or technique.</p>
+<p>A man who is in pursuit of a Ph.D degree. Build this blog to record some knowledge or technique.</p>
 
 <h2>Skills</h2>
 

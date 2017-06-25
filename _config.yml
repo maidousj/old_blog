@@ -10,6 +10,8 @@ description: A blog about technology and stuff related
 external-image: false
 picture: assets/images/haha.jpg
 profilePic: assets/images/Q_profile.jpg
+testleft: assets/images/test-left.jpg
+testright: assets/images/test-right.jpg
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
@@ -51,7 +53,8 @@ github: maidousj
 #medium: medium
 # vimeo: myvimeo
 email: maidousj@aliyun.com
-#zhihu: yiban-jiong
+zhihu: yiban-jiong
+#weibo: 
 
 authors:
     johndoe:
@@ -60,12 +63,12 @@ authors:
         external-image: false
         picture: assets/images/Q_profile.jpg
         twitter: johndoe
-    jamesfoster:
-        name: James Foster
-        bio: A Man who develops software with coffee
+    Sun:
+        name: Sun
+        bio: Semper Fortis
         external-image: false
-        picture: assets/images/james.jpg
-        twitter: jamesfoster
+        picture: assets/images/Q_profile.jpg
+#        twitter: jamesfoster
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal

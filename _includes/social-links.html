@@ -101,4 +101,10 @@
         </a>
     {% endif %}
 
+	{% if site.weibo %}
+        <a class="link" data-title="{{ site.weibo }}" href="https://weibo.com/u/{{ site.weibo }}" target="_blank">
+            <svg class="icon icon-weibo"><use xlink:href="#icon-weibo"></use></svg>
+        </a>
+    {% endif %}
+
 </div>
