@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-26T00:33:24+08:00</updated><id>http://localhost:4000/</id><title type="html">Sun</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Markdown Extra Components</title><link href="http://localhost:4000/markdown-extra-components/" rel="alternate" type="text/html" title="Markdown Extra Components" /><published>2016-02-24T22:48:00+08:00</published><updated>2016-02-24T22:48:00+08:00</updated><id>http://localhost:4000/markdown-extra-components</id><content type="html" xml:base="http://localhost:4000/markdown-extra-components/">&lt;h2 id=&quot;summary&quot;&gt;Summary:&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-27T00:04:06+08:00</updated><id>http://localhost:4000/</id><title type="html">Sun</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">MacOS下安装ipdb的问题</title><link href="http://localhost:4000/MacOS-install-ipdb-problem/" rel="alternate" type="text/html" title="MacOS下安装ipdb的问题" /><published>2017-06-26T22:07:00+08:00</published><updated>2017-06-26T22:07:00+08:00</updated><id>http://localhost:4000/MacOS-install-ipdb-problem</id><content type="html" xml:base="http://localhost:4000/MacOS-install-ipdb-problem/">&lt;p&gt;以下方法没有测试：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;由于El Capitan引入了SIP机制(System Integrity Protection)，默认下系统启用SIP系统完整性保护机制，无论是对于硬盘还是运行时的进程限制对系统目录的写操作。 这也是我们安装ipdb/ipython失败的原因….
+现在的解决办法是取消SIP机制，具体做法是：
+重启电脑，按住Command+R(直到出现苹果标志)进入Recovery Mode(恢复模式)
+左上角菜单里找到实用工具 -&amp;gt; 终端
+输入csrutil disable回车
+重启Mac即可
+如果想重新启动SIP机制重复上述步骤改用csrutil enable即可
+我们现在再看看sip的状态, 这样再安装ipdb/ipython、gevent再也不会提示无法写入的权限提示了&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;csrutil&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integrity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Protection&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果在mac下碰到OSError: [Errno 1] Operation not permitted:的问题，就算用sudo 也无法解决，那肯定是sip在作怪了.&lt;/p&gt;
+
+&lt;p&gt;本人测试了另一种&lt;strong&gt;更为优雅&lt;/strong&gt;的方法，基于普通用户的权限来安装。
+此外，本人还遇到了提示版本的问题。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ipdb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Invalid&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;python_version&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;3.3&quot;&lt;/span&gt;
+
+&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ipdb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Sun</name></author><category term="blog" /><category term="pip" /><category term="ipdb" /><summary type="html">以下方法没有测试： 由于El Capitan引入了SIP机制(System Integrity Protection)，默认下系统启用SIP系统完整性保护机制，无论是对于硬盘还是运行时的进程限制对系统目录的写操作。 这也是我们安装ipdb/ipython失败的原因…. 现在的解决办法是取消SIP机制，具体做法是： 重启电脑，按住Command+R(直到出现苹果标志)进入Recovery Mode(恢复模式) 左上角菜单里找到实用工具 -&amp;gt; 终端 输入csrutil disable回车 重启Mac即可 如果想重新启动SIP机制重复上述步骤改用csrutil enable即可 我们现在再看看sip的状态, 这样再安装ipdb/ipython、gevent再也不会提示无法写入的权限提示了</summary></entry><entry><title type="html">The first test blog</title><link href="http://localhost:4000/test/" rel="alternate" type="text/html" title="The first test blog" /><published>2017-06-26T10:12:00+08:00</published><updated>2017-06-26T10:12:00+08:00</updated><id>http://localhost:4000/test</id><content type="html" xml:base="http://localhost:4000/test/">&lt;h2 id=&quot;summary&quot;&gt;Summary:&lt;/h2&gt;
+
+&lt;p&gt;Copy from one of my memos for test.&lt;/p&gt;
+
+&lt;h3 id=&quot;catalog&quot;&gt;catalog&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#Module2&quot;&gt;Module 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#Module 3&quot;&gt;Module 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#Module 4&quot;&gt;Module 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;module2&quot;&gt;Module2&lt;/h5&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在VLDB2016上的一个教程&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;为了保证数据的可用性，一个统计数据库必须要泄漏一些关于个体的信息&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A vast majority of records in a database of size n can be reconstructed when $ n\log(n)^2 $ queriesare answered by a statistical database …
+… even if each answer has been arbitrarilyaltered to have up to o(√n) error&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;——— Dinur-Nissim PODS 2003&lt;/p&gt;
+
+&lt;p&gt;也就是说，对于（在同一个数据库上的）queries的数量是有限制的。&lt;/p&gt;
+
+&lt;h5 id=&quot;module-3&quot;&gt;Module 3&lt;/h5&gt;
+
+&lt;p&gt;对于表格式的数据库查询的回复&lt;/p&gt;
+
+&lt;p&gt;Offline (batch)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Entire W given as input, answers computed in batch&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Online (adaptive)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;W is sequence q1, q2, … that arrives online&lt;/li&gt;
+  &lt;li&gt;Adaptive: analyst’s choice for qi can depend onanswers 𝑎1, … , 𝑎𝑖−1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Answering linear queries online is strictly harder than answering them offline [BSU16]&lt;/p&gt;
+
+&lt;p&gt;数据复杂性和查询的复杂性&lt;/p&gt;
+
+&lt;p&gt;Query：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;histograms, range queries, marginals, counting queries, linear queries&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Solution variants: query answers vs.synthetic data&lt;/p&gt;
+
+&lt;p&gt;Two high-level approaches to solving problem&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Direct:
+– Output of the algorithm is list of query answers&lt;/li&gt;
+  &lt;li&gt;Synthetic data:
+– Algorithm constructs a synthetic dataset D’, which canbe queried directly by analyst
+– Analyst can pose additional queries on D’(though answers may not be accurate)&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Sun</name></author><category term="blog" /><category term="test" /><category term="haha" /><summary type="html">Summary:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/bridge.jpg" /></entry><entry><title type="html">Markdown Extra Components</title><link href="http://localhost:4000/markdown-extra-components/" rel="alternate" type="text/html" title="Markdown Extra Components" /><published>2016-02-24T22:48:00+08:00</published><updated>2016-02-24T22:48:00+08:00</updated><id>http://localhost:4000/markdown-extra-components</id><content type="html" xml:base="http://localhost:4000/markdown-extra-components/">&lt;h2 id=&quot;summary&quot;&gt;Summary:&lt;/h2&gt;
 
 &lt;p&gt;You can pick as item to see how to apply in markdown.&lt;/p&gt;
 
@@ -367,4 +458,4 @@ It’s sometimes handy for breaking things up.&lt;/p&gt;
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://sergiokopplin.github.io/indigo/&quot;&gt;Check it out&lt;/a&gt; here.
-If you need some help, just &lt;a href=&quot;http://github.com/sergiokopplin/indigo/issues&quot;&gt;tell me&lt;/a&gt;.&lt;/p&gt;</content><author><name>johndoe</name></author><category term="project" /><category term="jekyll" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png" /></entry></feed>
+If you need some help, just &lt;a href=&quot;http://github.com/sergiokopplin/indigo/issues&quot;&gt;tell me&lt;/a&gt;.&lt;/p&gt;</content><author><name>Sun</name></author><category term="project" /><category term="jekyll" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png" /></entry></feed>
