@@ -96,14 +96,20 @@
     {% endif %}
 
 	{% if site.zhihu %}
-        <a class="link" data-title="{{ site.zhihu }}" href="https://www.zhihu.com/people/{{ site.zhihu }}" target="_blank">
+        <a class="link" data-title="zhihu.com/people/{{ site.zhihu }}" href="https://www.zhihu.com/people/{{ site.zhihu }}" target="_blank">
             <svg class="icon icon-zhihu"><use xlink:href="#icon-zhihu"></use></svg>
         </a>
     {% endif %}
 
 	{% if site.weibo %}
-        <a class="link" data-title="{{ site.weibo }}" href="https://weibo.com/u/{{ site.weibo }}" target="_blank">
-            <svg class="icon icon-weibo"><use xlink:href="#icon-weibo"></use></svg>
+        <a class="link" data-title="weibo.com/u/{{ site.weibo }}" href="https://weibo.com/u/{{ site.weibo }}" target="_blank">
+            <svg class="icon icon-share_weibo"><use xlink:href="#icon-share_weibo"></use></svg>
+        </a>
+    {% endif %}
+
+	{% if site.douban %}
+        <a class="link" data-title="douban.com/people/{{ site.douban }}" href="https://douban.com/people/{{ site.douban }}" target="_blank">
+            <svg class="icon icon-douban"><use xlink:href="#icon-douban"></use></svg>
         </a>
     {% endif %}
 

@@ -19,7 +19,7 @@ author: Sun
 > 如果想重新启动SIP机制重复上述步骤改用csrutil enable即可
 > 我们现在再看看sip的状态, 这样再安装ipdb/ipython、gevent再也不会提示无法写入的权限提示了
 
-```python
+```latex
 $ csrutil status
 System Integrity Protection status: disabled.
 ```
