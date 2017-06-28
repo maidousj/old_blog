@@ -13,12 +13,14 @@ title=""
 image=""
 tag=""
 category="blog"
+displayImage = 'false'
 
 for op, value in opts:
     if op in ("-t", "--title"):
         title = value
     if op in ("-i", "--image"):
         image = value
+        displayImage = 'true'
     if op in ("--tag"):
         tag = "- "+value+"\n"
         for t in args:
@@ -42,6 +44,7 @@ titlecontent=["---",
 "\nlayout: post",
 "\ndate: "+ datetime,
 "image: /assets/images/"+ image,
+"\nheaderImage: "+ displayImage,
 "\ncategory: "+ category,
 "\ntag:\n"+ tag,
 "author: Sun",
