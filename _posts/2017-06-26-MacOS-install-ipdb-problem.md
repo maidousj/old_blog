@@ -32,7 +32,7 @@ System Integrity Protection status: disabled.
 ```python
 error in ipdb setup command: Invalid environment marker: python_version >= "3.3"
 
-$ pip install ipdb=0.10.2 --user -U
+$ pip install ipdb==0.10.2 --user -U
 ```
 
 

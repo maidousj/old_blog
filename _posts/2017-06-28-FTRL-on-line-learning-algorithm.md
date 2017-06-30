@@ -54,7 +54,7 @@ $$Regret_t = \sum_{t=1}^T f_t(w_t) - \sum_{t=1}^T f_t(w^*)$$
 
 其中$w^* = \mathop{argmin}\limits_{w} \sum_{i=1}^t f_i(w)  $是原函数的最优解。所以regret的含义就是每次代理函数求出解，和真正损失函数求出解的**损失差距**。这个损失必须满足一定条件，Online Learning才可以有效：
 
-$$\mathop{\lim}_{t \rightarrow \infty} \frac{Regret_t}{t} = 0$$
+$$\mathop{\lim}_{t \rightarrow \infty} \frac{Regret_t}{t} = 0 \tag{1}$$
 
 随着训练样本的增多，这两个优化目标优化出的参数的实际损失值差距越来越小。
 
@@ -68,7 +68,7 @@ $$h_t = \sum_{i=1}^t g_i \cdot w + \sum_{i=1}^t(\frac{1}{2 \eta_t} -\frac{1}{2 \
 
 $$\eta_{t} = \frac{\alpha}{\sqrt{\sum_{i=1}^{t} g_{t}^{2}}}$$
 
-只要$f_i(w_i)$是凸函数，上面的代理函数一定满足条件(5)。
+只要$f_i(w_i)$是凸函数，上面的代理函数一定满足条件(1)。
 
 
 
@@ -80,7 +80,14 @@ $$w_{t+1,i} = \left\{\begin{array}{ll}0 & |z_{t,i}| < \lambda_{1} \newline-\eta_
 
 $$z_{t,i} = \sum_{s=1}^{t}g_{s,i} + \sum_{s=1}^{t}\left( \frac{1}{ \eta_{t,i}} - \frac{1}{ \eta_{t-1,i}} \right) w_{t,i}$$
 
+— — 
 
+whywhy
+
+
+
+
+$$w_{t+1,i} = \left\{\begin{array}{ll}0 & |z_{t,i}| < \lambda_{1} \newline-\eta_{t}(z_{t,i} - sgn(z_{t,i})\lambda_{1})  & otherwise \end{array}\right.$$
 
 可以得到FTRL的更新流程如下：
 
@@ -102,11 +109,12 @@ $$z_{t,i} = \sum_{s=1}^{t}g_{s,i} + \sum_{s=1}^{t}\left( \frac{1}{ \eta_{t,i}} -
 > > >
 > > > 更新
 > > >
-> > > $$w_{t+1,i} = \left\{\begin{array}{ll}0 & |z_{t,i}| < \lambda_{1} \newline-\eta_{t}(z_{t,i} - sgn(z_{t,i})\lambda_{1})  & otherwise\end{array}\right.$$
-> > >
-> > > 
+> > > $$w_{t+1,i} = \left\{\begin{array}{ll}0 & |z_{t,i}| < \lambda_{1} \newline-\eta_{t}(z_{t,i} - sgn(z_{t,i})\lambda_{1})  & otherwise \end{array}\right.$$
 
 
+
+
+最后一个公式哪儿去了。
 
 PS: 上述内容整理自美团技术团队的[Online Learning算法理论与实践](http://tech.meituan.com/online-learning.html?utm_source=tuicool&utm_medium=referral)
 
