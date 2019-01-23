@@ -15,7 +15,7 @@ author: Sun
 
 [从这来的](https://www.acsu.buffalo.edu/~gaboardi/teaching/cse660-Fall17/CSE660-18.pdf)，记录一下作为总结，之前各种survey看的云里雾里的，总算找到一个清晰的。
 
-####组合性
+#### 组合性
 
 首先是pure DP的组合性，所谓pure DP就是指$\epsilon$-DP。
 
@@ -29,7 +29,7 @@ author: Sun
 
 - 定理3 (高级组合性)：对于$1\leq i \leq k$并且**$k < 1/\epsilon$**，$\delta'>0$，如果$M_i: \chi^n \rightarrow R_i$是$(\epsilon, \delta)$-DP的算法，那么组合性被定义为，$M(D) = (M_1(D), M_2(D), \dots, M_k(D))$是$(O(\sqrt{2k\ln(1/\delta')})\epsilon, k\delta + \delta')$-DP的。
 
-####可以回答多少查询（queries）
+#### 可以回答多少查询（queries）
 
 * A single query
   * Randomized Response
